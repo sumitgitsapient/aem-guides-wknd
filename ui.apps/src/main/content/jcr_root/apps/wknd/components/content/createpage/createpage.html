@@ -1,0 +1,45 @@
+<script>
+$(document).ready(function(){
+	  
+    $('body').hide().fadeIn(1000);
+   $('#submit3').click(function() {
+ 
+
+ 
+     //read the values
+       var pageTitle = $('#pageTitle').val(); 
+       var pageName = $('#pageName').val(); 
+ 
+
+ 
+       alert(pageTitle) ; 
+ 
+ 
+
+   //Perform an AJAX operation
+       $.ajax({
+type: 'GET', 
+url:'/bin/createpage',
+success: function(msg){
+   alert("success"); //display the data returned by the servlet
+}
+});
+ 
+ 
+
+ 
+});
+});
+</script>
+<div>
+    <h4> Invoke an AEM Servlet that create the pages programatically.</h4>
+       <form>    
+            <fieldset>
+            <legend>Specify Page Title and Name:</legend>
+            <input class="btmspace-15" type="text" id="pageTitle" placeholder="PageTitle">
+            <input class="btmspace-15" type="text" id="pageName"  placeholder="PageName">
+            <input type="button" value="Create"  name="submit3" id="submit3">
+          </fieldset>
+        </form>
+  
+    </div>

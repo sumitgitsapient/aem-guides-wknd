@@ -1,0 +1,46 @@
+<script>
+$(document).ready(function(){
+	  
+    $('body').hide().fadeIn(1000);
+   $('#submit2').click(function() {
+ 
+
+ 
+     //read the values
+       var assetPath = $('#assetPath').val(); 
+       var myemail = $('#email').val(); 
+
+
+ 
+       alert(myemail) ; 
+ 
+ 
+
+   //Perform an AJAX operation
+       $.ajax({
+type: 'GET', 
+url:'/bin/invokeWF',
+data:'assetPath='+ assetPath+'&email='+ myemail,
+success: function(msg){
+   alert(msg); //display the data returned by the servlet
+}
+});
+ 
+ 
+
+ 
+});
+});
+</script>
+<div>
+    <h4> Invoke an AEM Workflow that approves the Selected Asset</h4>
+       <form>    
+            <fieldset>
+            <legend>Specify Asset and email address:</legend>
+            <input class="btmspace-15" type="text" id="assetPath" value="/content/dam/we-retail/en/people/mens/men_1.jpg" placeholder="Name">
+            <input class="btmspace-15" type="text" id="email" value="scottm@adobe.com" placeholder="Email address">
+            <input type="button" value="Submit"  name="submit2" id="submit2">
+          </fieldset>
+        </form>
+  
+    </div>
